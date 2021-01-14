@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
+import { Game } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-horizontal-bar-chart',
@@ -6,24 +7,7 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['./horizontal-bar-chart.component.css'],
 })
 export class HorizontalBarChartComponent implements OnDestroy {
-  results: any[] = [
-    {
-      name: 'Germany',
-      value: 8940000,
-    },
-    {
-      name: 'USA',
-      value: 5000000,
-    },
-    {
-      name: 'France',
-      value: 7200000,
-    },
-    {
-      name: 'Mexico',
-      value: 9200000,
-    },
-  ];
+  @Input() results: any[] = [];
 
   showXAxis: boolean = true;
   showYAxis: boolean = true;
@@ -57,11 +41,12 @@ export class HorizontalBarChartComponent implements OnDestroy {
   }
 
   randomize() {
-    console.log('xd');
+    /* console.log('tick');
     const newResults = [...this.results];
     for (let i in this.results) {
       newResults[i].value = Math.round(Math.random() * 1_000_000);
     }
-    this.results = newResults;
+    this.results = newResults; */
+    console.log(this.results);
   }
 }
